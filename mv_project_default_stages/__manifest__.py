@@ -12,7 +12,7 @@
         'data/project_stage_data.xml', ],
 
     "images": [
-        "static/description/banner.jpg",
+        "static/description/banner.png",
     ],
     "installable": True,
     "application": False,
