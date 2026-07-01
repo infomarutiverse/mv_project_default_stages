@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default Stage: To Do -->
+        <record id="project_default_stage_todo" model="project.task.type">
+            <field name="name">To Do</field>
+            <field name="sequence">1</field>
+            <field name="is_default_stage" eval="True"/>
+        </record>
+
+        <!-- Default Stage: In Progress -->
+        <record id="project_default_stage_in_progress" model="project.task.type">
+            <field name="name">In Progress</field>
+            <field name="sequence">10</field>
+            <field name="is_default_stage" eval="True"/>
+        </record>
+
+        <!-- Default Stage: Done -->
+        <record id="project_default_stage_done" model="project.task.type">
+            <field name="name">Done</field>
+            <field name="sequence">20</field>
+            <field name="fold" eval="True"/>
+            <field name="is_default_stage" eval="True"/>
+        </record>
+    </data>
+</odoo>

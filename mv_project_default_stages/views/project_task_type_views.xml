@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form View -->
+    <record id="project_task_type_view_form_inherit_default_stages" model="ir.ui.view">
+        <field name="name">project.task.type.form.inherit.default.stages</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fold']" position="after">
+                <field name="is_default_stage" groups="project.group_project_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Window Action -->
+    <record id="action_default_task_stages" model="ir.actions.act_window">
+        <field name="name">Default Task Stages</field>
+        <field name="res_model">project.task.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_default_stage', '=', True)]</field>
+        <field name="context">{'default_is_default_stage': True}</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_project_default_task_stages"
+              name="Default Task Stages"
+              parent="project.menu_project_config"
+              action="action_default_task_stages"
+              groups="project.group_project_manager"
+              sequence="50"/>
+</odoo>
